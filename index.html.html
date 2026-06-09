@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aboubakar Sidick Touré — Directeur Technique Junior</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --gold:#D4600A;--gold2:#E8822A;
+  --bg:#111;--bg2:#161616;--bg3:#1C1C1C;--bg4:#252525;
+  --text:#E8E2D8;--text2:#C8C0B4;--text3:#908880;--text4:#606060;
+  --brd:#2E2E2E;--brd2:#3A3A3A;
+  --green:#2ECC8A;--green-l:rgba(46,204,138,.12);
+  --red:#E05050;--red-l:rgba(224,80,80,.1);
+  --blue:#4A9EE0;
+  --ff:'Cormorant Garamond',Georgia,serif;
+  --fs:'DM Sans',sans-serif;
+  --fm:'DM Mono',monospace;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--fs);background:var(--bg);color:var(--text);overflow-x:hidden;line-height:1.6}
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--gold);border-radius:2px}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:999;background:rgba(17,17,17,.95);backdrop-filter:blur(14px);border-bottom:1px solid var(--brd);height:56px;display:flex;align-items:center;justify-content:space-between;padding:0 48px}
+.nav-logo{font-family:var(--ff);font-size:20px;font-weight:600;letter-spacing:.14em;color:var(--text)}
+.nav-logo span{color:var(--gold)}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{color:var(--text4);text-decoration:none;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;transition:color .2s}
+.nav-links a:hover{color:var(--gold)}
+.nav-cta{padding:7px 18px;border:1px solid var(--gold);border-radius:5px;color:var(--gold)!important;transition:background .2s,color .2s!important}
+.nav-cta:hover{background:var(--gold)!important;color:#fff!important}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;padding:80px 48px 60px;position:relative;overflow:hidden}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(212,96,10,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(212,96,10,.03) 1px,transparent 1px);background-size:48px 48px;pointer-events:none}
+.hero-glow{position:absolute;top:-20%;right:-5%;width:800px;height:800px;border-radius:50%;background:radial-gradient(circle,rgba(212,96,10,.07) 0%,transparent 65%);animation:glow 7s ease infinite;pointer-events:none}
+@keyframes glow{0%,100%{opacity:.6;transform:scale(1)}50%{opacity:1;transform:scale(1.06)}}
+.hero-inner{max-width:1160px;margin:0 auto;width:100%;position:relative;z-index:1}
+
+/* HERO TOP — accroche */
+.hero-pretitle{font-family:var(--fm);font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:12px;margin-bottom:28px}
+.hero-pretitle::before{content:'';width:36px;height:1px;background:var(--gold)}
+.hero-name{font-family:var(--ff);font-size:clamp(52px,6.5vw,88px);font-weight:600;line-height:.95;letter-spacing:-.01em;color:var(--text);margin-bottom:20px}
+.hero-name em{font-style:italic;color:var(--gold)}
+
+/* POSITIONNEMENT — la phrase clé */
+.hero-position{display:inline-flex;align-items:center;gap:0;margin-bottom:32px;border:1px solid var(--brd2);border-radius:8px;overflow:hidden}
+.hp-left{background:var(--gold);padding:12px 20px;font-family:var(--ff);font-size:18px;font-weight:600;color:#fff;letter-spacing:.02em}
+.hp-right{padding:12px 20px;background:var(--bg3);font-size:12px;font-weight:500;color:var(--text2);letter-spacing:.04em;line-height:1.4}
+
+.hero-desc{font-size:15px;color:var(--text3);line-height:1.85;max-width:640px;margin-bottom:40px}
+.hero-desc strong{color:var(--text2);font-weight:600}
+
+/* IMPACT NUMBERS inline */
+.hero-impacts{display:flex;gap:32px;margin-bottom:40px;flex-wrap:wrap}
+.impact{display:flex;flex-direction:column;gap:2px}
+.impact-v{font-family:var(--ff);font-size:36px;font-weight:600;line-height:1;color:var(--text)}
+.impact-v span{color:var(--gold);font-size:24px}
+.impact-l{font-size:10px;font-weight:600;color:var(--text4);letter-spacing:.1em;text-transform:uppercase}
+.impact-sep{width:1px;background:var(--brd2);align-self:stretch;margin:4px 0}
+
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn-p{padding:13px 28px;background:var(--gold);color:#fff;border:none;border-radius:6px;font-family:var(--fs);font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:background .2s,transform .15s}
+.btn-p:hover{background:var(--gold2);transform:translateY(-2px)}
+.btn-o{padding:13px 28px;background:transparent;color:var(--text2);border:1px solid var(--brd2);border-radius:6px;font-family:var(--fs);font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:border-color .2s,color .2s,transform .15s}
+.btn-o:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px)}
+
+/* SECTIONS */
+section{padding:88px 48px}
+.container{max-width:1160px;margin:0 auto}
+.eye{display:flex;align-items:center;gap:14px;margin-bottom:12px}
+.eye-t{font-family:var(--fm);font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold)}
+.eye-l{flex:1;height:1px;background:var(--brd)}
+.sec-title{font-family:var(--ff);font-size:clamp(32px,4vw,52px);font-weight:600;line-height:1.08;color:var(--text);margin-bottom:10px}
+.sec-sub{font-size:14px;color:var(--text3);max-width:600px;line-height:1.8;margin-bottom:52px}
+
+/* PILIERS — Pourquoi moi */
+#pourquoi{background:var(--bg2)}
+.piliers{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--brd);border-radius:14px;overflow:hidden;margin-bottom:52px}
+.pilier{background:var(--bg3);padding:36px 28px;position:relative;overflow:hidden;transition:background .2s}
+.pilier:hover{background:var(--bg4)}
+.pilier::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.pilier:nth-child(1)::before{background:var(--gold)}
+.pilier:nth-child(2)::before{background:var(--green)}
+.pilier:nth-child(3)::before{background:var(--blue)}
+.pilier-num{font-family:var(--ff);font-size:64px;font-weight:600;line-height:1;opacity:.06;position:absolute;top:16px;right:20px;color:var(--text)}
+.pilier-ico{font-size:28px;margin-bottom:16px}
+.pilier-title{font-family:var(--ff);font-size:22px;font-weight:600;color:var(--text);margin-bottom:12px;line-height:1.2}
+.pilier-title em{font-style:italic}
+.pilier-desc{font-size:13px;color:var(--text3);line-height:1.75}
+.pilier-desc strong{color:var(--text2)}
+.pilier-proof{margin-top:20px;padding:12px 14px;background:rgba(0,0,0,.3);border-radius:8px;border-left:3px solid var(--gold);font-size:11px;color:var(--text3);font-style:italic;line-height:1.6}
+
+/* CHANTIERS */
+#chantiers{background:var(--bg)}
+.chantiers-layout{display:grid;grid-template-columns:1fr 360px;gap:40px;align-items:start}
+
+/* Carte chantier principale */
+.chantier-main{background:var(--bg2);border:1px solid var(--brd);border-radius:16px;overflow:hidden}
+.cm-header{padding:24px 28px;background:linear-gradient(135deg,var(--bg3),rgba(212,96,10,.06));border-bottom:1px solid var(--brd);display:flex;align-items:flex-start;justify-content:space-between;gap:20px}
+.cm-title{font-family:var(--ff);font-size:26px;font-weight:600;color:var(--text);margin-bottom:4px}
+.cm-sub{font-size:11px;color:var(--text4);letter-spacing:.08em;text-transform:uppercase}
+.cm-badge{display:inline-flex;align-items:center;gap:5px;padding:5px 12px;border-radius:20px;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;flex-shrink:0}
+.cm-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--brd)}
+.cm-kpi{background:var(--bg2);padding:16px 14px;text-align:center}
+.cm-kpi-v{font-family:var(--ff);font-size:26px;font-weight:600;line-height:1;color:var(--text)}
+.cm-kpi-v span{color:var(--gold)}
+.cm-kpi-l{font-size:9px;font-weight:600;color:var(--text4);letter-spacing:.08em;text-transform:uppercase;margin-top:3px}
+.cm-body{padding:24px 28px}
+.cm-challenge{background:var(--red-l);border:1px solid rgba(224,80,80,.2);border-left:3px solid var(--red);border-radius:8px;padding:14px 16px;margin-bottom:20px}
+.cm-challenge-label{font-family:var(--fm);font-size:8px;color:var(--red);letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px}
+.cm-challenge-text{font-size:13px;color:var(--text2);line-height:1.65}
+.cm-actions{display:flex;flex-direction:column;gap:8px;margin-bottom:20px}
+.cm-action{display:flex;gap:10px;font-size:13px;color:var(--text3);line-height:1.6}
+.cm-action-ico{color:var(--gold);flex-shrink:0;font-size:14px;margin-top:1px}
+.cm-impact{background:rgba(46,204,138,.05);border:1px solid rgba(46,204,138,.15);border-radius:8px;padding:14px 16px}
+.cm-impact-label{font-family:var(--fm);font-size:8px;color:var(--green);letter-spacing:.14em;text-transform:uppercase;margin-bottom:8px}
+.cm-impact-items{display:flex;flex-direction:column;gap:5px}
+.cm-impact-item{display:flex;gap:8px;font-size:12px;color:var(--text3)}
+.cm-impact-item::before{content:'✓';color:var(--green);font-weight:700;flex-shrink:0}
+
+/* Carte chantier mini */
+.chantier-mini-list{display:flex;flex-direction:column;gap:10px}
+.chantier-mini{background:var(--bg2);border:1px solid var(--brd);border-radius:12px;padding:16px 18px;cursor:pointer;transition:border-color .2s,transform .15s}
+.chantier-mini:hover{border-color:var(--gold);transform:translateX(3px)}
+.cm-mini-ico{font-size:20px;margin-bottom:8px}
+.cm-mini-type{font-size:8px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px}
+.cm-mini-name{font-family:var(--ff);font-size:15px;font-weight:600;color:var(--text);margin-bottom:3px}
+.cm-mini-loc{font-size:10px;color:var(--text4)}
+.cm-mini-tags{display:flex;flex-wrap:wrap;gap:4px;margin-top:8px}
+.cm-mini-tag{padding:2px 8px;border-radius:8px;font-size:9px;font-weight:600;background:var(--bg4);border:1px solid var(--brd);color:var(--text4)}
+
+/* MAP */
+.map-section{margin-top:40px;background:var(--bg2);border:1px solid var(--brd);border-radius:16px;overflow:hidden}
+.map-header{padding:18px 24px;border-bottom:1px solid var(--brd);display:flex;align-items:center;justify-content:space-between}
+.map-title{font-family:var(--ff);font-size:18px;font-weight:600;color:var(--text)}
+.map-count{font-family:var(--fm);font-size:9px;color:var(--gold);letter-spacing:.12em}
+
+/* OUTILS */
+#outils{background:var(--bg2)}
+.outils-intro{background:var(--bg3);border:1px solid var(--brd);border-left:3px solid var(--gold);border-radius:12px;padding:20px 24px;margin-bottom:40px;display:flex;gap:16px;align-items:flex-start}
+.oi-ico{font-size:24px;flex-shrink:0;margin-top:2px}
+.oi-text{font-size:14px;color:var(--text2);line-height:1.75}
+.oi-text strong{color:var(--gold)}
+.outils-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.outil-card{background:var(--bg3);border:1px solid var(--brd);border-radius:14px;overflow:hidden;transition:border-color .2s,transform .2s}
+.outil-card:hover{border-color:var(--brd2);transform:translateY(-4px)}
+.oc-top{padding:22px 22px 16px;border-bottom:1px solid var(--brd);display:flex;gap:14px;align-items:flex-start}
+.oc-ico{width:44px;height:44px;border-radius:10px;background:rgba(212,96,10,.1);border:1px solid rgba(212,96,10,.2);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.oc-meta{flex:1}
+.oc-name{font-family:var(--ff);font-size:19px;font-weight:600;color:var(--text);margin-bottom:2px}
+.oc-type{font-size:9px;font-weight:700;color:var(--gold);letter-spacing:.1em;text-transform:uppercase}
+.oc-desc{font-size:12px;color:var(--text3);line-height:1.65;margin-top:6px}
+.oc-body{padding:16px 22px}
+.oc-livrable-title{font-family:var(--fm);font-size:8px;color:var(--gold);letter-spacing:.14em;text-transform:uppercase;margin-bottom:10px}
+.oc-livrables{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+.oc-livrable{display:flex;gap:8px;font-size:11px;color:var(--text3);line-height:1.55}
+.oc-livrable::before{content:'→';color:var(--gold);flex-shrink:0;font-weight:700}
+
+/* Preview screenshots */
+.oc-preview{border-radius:8px;overflow:hidden;border:1px solid var(--brd);background:#fff}
+.oc-preview-tabs{display:flex;background:var(--bg4);border-bottom:1px solid var(--brd)}
+.oc-tab{flex:1;padding:6px 8px;background:none;border:none;font-family:var(--fs);font-size:9px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;color:var(--text4);transition:all .15s;border-bottom:2px solid transparent}
+.oc-tab.active{color:var(--gold);border-bottom-color:var(--gold);background:var(--bg3)}
+.oc-panel{display:none}
+.oc-panel.active{display:block}
+.oc-panel img{width:100%;display:block}
+
+/* EXPÉRIENCE */
+#experience{background:var(--bg)}
+.exp-list{display:flex;flex-direction:column;gap:0}
+.exp-item{display:grid;grid-template-columns:180px 1fr;gap:0;position:relative;padding-bottom:44px}
+.exp-item:last-child{padding-bottom:0}
+.exp-line{position:absolute;left:180px;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,var(--gold),rgba(212,96,10,.1));transform:translateX(-1px)}
+.exp-item:last-child .exp-line{display:none}
+.exp-left{padding-right:28px;padding-top:4px;text-align:right}
+.exp-period{font-family:var(--fm);font-size:9px;color:var(--text4);letter-spacing:.08em;margin-bottom:4px}
+.exp-company{font-size:13px;font-weight:600;color:var(--text3)}
+.exp-loc{font-size:10px;color:var(--text4);margin-top:2px}
+.exp-right{padding-left:28px;position:relative}
+.exp-dot{position:absolute;left:-5px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--gold);border:2px solid var(--bg);z-index:1}
+.exp-item:first-child .exp-dot{width:14px;height:14px;left:-7px;top:4px;box-shadow:0 0 0 3px rgba(212,96,10,.2)}
+.exp-role{font-family:var(--ff);font-size:22px;font-weight:600;color:var(--text);margin-bottom:6px}
+.exp-current{display:inline-flex;align-items:center;gap:5px;padding:2px 9px;background:var(--green-l);border:1px solid rgba(46,204,138,.25);border-radius:20px;font-size:9px;font-weight:700;color:var(--green);letter-spacing:.07em;text-transform:uppercase;margin-left:10px;vertical-align:middle}
+.exp-current::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--green);animation:pulse 1.5s ease infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.exp-tasks{display:flex;flex-direction:column;gap:7px;margin-top:12px}
+.exp-task{display:flex;gap:10px;font-size:13px;color:var(--text3);line-height:1.6}
+.exp-task::before{content:'—';color:var(--gold);flex-shrink:0}
+
+/* COMPÉTENCES */
+#competences{background:var(--bg2)}
+.skills-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.sg{background:var(--bg3);border:1px solid var(--brd);border-radius:12px;padding:22px}
+.sg-t{font-family:var(--fm);font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.sg-t::after{content:'';flex:1;height:1px;background:rgba(212,96,10,.15)}
+.sk{margin-bottom:10px}
+.sk:last-child{margin-bottom:0}
+.sk-meta{display:flex;justify-content:space-between;margin-bottom:4px}
+.sk-n{font-size:12px;font-weight:500;color:var(--text2)}
+.sk-p{font-family:var(--fm);font-size:9px;color:var(--text4)}
+.sk-bar{height:3px;background:var(--brd);border-radius:2px;overflow:hidden}
+.sk-fill{height:100%;border-radius:2px;background:linear-gradient(90deg,var(--gold),var(--gold2));width:0;transition:width 1.2s cubic-bezier(.4,0,.2,1)}
+
+/* FORMATION */
+#formation{background:var(--bg)}
+.edu-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+.edu-card{background:var(--bg2);border:1px solid var(--brd);border-radius:12px;padding:22px;position:relative;overflow:hidden;transition:transform .15s}
+.edu-card:hover{transform:translateY(-3px)}
+.edu-card::before{content:'';position:absolute;top:0;left:0;bottom:0;width:3px;background:var(--gold)}
+.edu-yr{font-family:var(--fm);font-size:9px;color:var(--gold);letter-spacing:.1em;margin-bottom:10px}
+.edu-deg{font-family:var(--ff);font-size:17px;font-weight:600;color:var(--text);line-height:1.3;margin-bottom:6px}
+.edu-school{font-size:12px;font-weight:500;color:var(--text3)}
+.edu-loc{font-size:10px;color:var(--text4);margin-top:3px}
+
+/* CONTACT */
+#contact{background:var(--bg2)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px}
+.c-items{display:flex;flex-direction:column;gap:10px}
+.c-item{display:flex;align-items:center;gap:14px;padding:14px 16px;background:var(--bg3);border:1px solid var(--brd);border-radius:10px;text-decoration:none;transition:border-color .2s}
+.c-item:hover{border-color:var(--gold)}
+.c-ico{width:36px;height:36px;border-radius:8px;background:rgba(212,96,10,.1);border:1px solid rgba(212,96,10,.15);display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
+.c-lbl{font-size:9px;font-weight:600;color:var(--text4);letter-spacing:.08em;text-transform:uppercase;margin-bottom:2px}
+.c-val{font-size:12px;font-weight:500;color:var(--text2)}
+.c-card{background:var(--bg3);border:1px solid var(--brd);border-radius:14px;padding:32px;position:relative;overflow:hidden}
+.c-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold2),transparent)}
+.c-avail{display:flex;align-items:center;gap:8px;font-size:11px;font-weight:600;color:var(--green);margin-bottom:16px}
+.c-avail::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--green);animation:pulse 1.5s ease infinite}
+.c-card-title{font-family:var(--ff);font-size:26px;font-weight:600;color:var(--text);line-height:1.2;margin-bottom:12px}
+.c-card-desc{font-size:13px;color:var(--text3);line-height:1.75;margin-bottom:24px}
+.c-pts{display:flex;flex-direction:column;gap:10px;margin-bottom:26px}
+.c-pt{display:flex;gap:10px;font-size:12px;color:var(--text3);align-items:flex-start}
+.c-pt-ico{font-size:15px;flex-shrink:0;margin-top:1px}
+
+/* FOOTER */
+footer{background:var(--bg);border-top:1px solid var(--brd);padding:24px 48px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.f-logo{font-family:var(--ff);font-size:18px;font-weight:600;color:var(--text)}
+.f-logo span{color:var(--gold)}
+.f-txt{font-size:10px;color:var(--text4);letter-spacing:.05em}
+.f-langs{display:flex;gap:6px}
+.f-lang{padding:3px 10px;border-radius:10px;background:var(--bg3);border:1px solid var(--brd);font-size:9px;font-weight:600;color:var(--text4)}
+
+/* ANIMATIONS */
+.fade-up{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+
+@media(max-width:900px){
+  nav{padding:0 20px}
+  .nav-links{display:none}
+  section{padding:60px 20px}
+  .hero{padding:90px 20px 50px}
+  .hero-position{flex-direction:column}
+  .hero-impacts{gap:20px}
+  .piliers{grid-template-columns:1fr}
+  .chantiers-layout{grid-template-columns:1fr}
+  .outils-grid{grid-template-columns:1fr}
+  .skills-grid{grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr}
+  .exp-item{grid-template-columns:1fr}
+  .exp-left{text-align:left;padding-right:0;padding-left:28px}
+  .exp-line{display:none}
+  footer{flex-direction:column;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">A<span>.</span>S<span>.</span> Touré</div>
+  <ul class="nav-links">
+    <li><a href="#pourquoi">Profil</a></li>
+    <li><a href="#chantiers">Chantiers</a></li>
+    <li><a href="#outils">Outils BTP</a></li>
+    <li><a href="#experience">Expérience</a></li>
+    <li><a href="#contact" class="nav-cta">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="accueil">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-inner">
+    <div class="hero-pretitle">Directeur Technique Junior · Génie Civil</div>
+    <div class="hero-name">Aboubakar<br>Sidick <em>Touré</em></div>
+
+    <div class="hero-position">
+      <div class="hp-left">L'ingénieur qui pilote le chantier</div>
+      <div class="hp-right">et construit les outils<br>pour le faire mieux que les autres.</div>
+    </div>
+
+    <p class="hero-desc">
+      Ingénieur d'État HESTIM / INSA Lyon. Je pilote simultanément <strong>6 chantiers publics</strong> 
+      en Côte d'Ivoire — de l'école au laboratoire — tout en développant mes propres outils 
+      numériques de planification, d'estimation et de suivi. <strong>Ce n'est pas un hobby. 
+      C'est ma façon de travailler.</strong>
+    </p>
+
+    <div class="hero-impacts">
+      <div class="impact">
+        <div class="impact-v">8<span>+</span></div>
+        <div class="impact-l">Projets menés</div>
+      </div>
+      <div class="impact-sep"></div>
+      <div class="impact">
+        <div class="impact-v">500<span>M+</span></div>
+        <div class="impact-l">FCFA pilotés</div>
+      </div>
+      <div class="impact-sep"></div>
+      <div class="impact">
+        <div class="impact-v">4</div>
+        <div class="impact-l">Outils créés</div>
+      </div>
+      <div class="impact-sep"></div>
+      <div class="impact">
+        <div class="impact-v">3</div>
+        <div class="impact-l">Pays d'intervention</div>
+      </div>
+    </div>
+
+    <div class="hero-btns">
+      <a href="#pourquoi" class="btn-p">→ Voir mon profil</a>
+      <a href="#contact" class="btn-o">📬 Me contacter</a>
+    </div>
+  </div>
+</section>
+
+<!-- POURQUOI MOI -->
+<section id="pourquoi">
+  <div class="container">
+    <div class="eye"><span class="eye-t">Positionnement</span><div class="eye-l"></div></div>
+    <h2 class="sec-title">Pourquoi moi ?</h2>
+    <p class="sec-sub">La plupart des ingénieurs font l'un ou l'autre. Je fais les trois.</p>
+
+    <div class="piliers fade-up">
+
+      <div class="pilier">
+        <div class="pilier-num">01</div>
+        <div class="pilier-ico">🏗️</div>
+        <div class="pilier-title">Je <em>pilote</em><br>les chantiers</div>
+        <div class="pilier-desc">
+          6 chantiers simultanés actuellement en Côte d'Ivoire sous marchés publics. 
+          <strong>Retards rattrapés, conflits arbitrés, non-conformités détectées et corrigées.</strong> 
+          Je coordonne équipes, sous-traitants et fournisseurs avec une rigueur de chef de projet.
+        </div>
+        <div class="pilier-proof">"J'ai géré en parallèle 4 situations critiques — retard, fournisseur défaillant, conflit terrain, non-conformité — sans arrêt de chantier."</div>
+      </div>
+
+      <div class="pilier">
+        <div class="pilier-num">02</div>
+        <div class="pilier-ico">🛠️</div>
+        <div class="pilier-title">Je <em>crée</em><br>les outils</div>
+        <div class="pilier-desc">
+          4 applications BTP développées from scratch : planification Gantt/CPM, estimation budgétaire, 
+          suivi 360°, génération de devis. <strong>Je n'attends pas qu'un logiciel existe — 
+          je le construis.</strong> C'est ce qui distingue un directeur technique d'un chef de chantier.
+        </div>
+        <div class="pilier-proof">"T.A.S BUILD — Diagramme Gantt + Chemin critique + Analyse des flottements, exporté en PDF professionnel, utilisé sur mes propres chantiers."</div>
+      </div>
+
+      <div class="pilier">
+        <div class="pilier-num">03</div>
+        <div class="pilier-ico">📈</div>
+        <div class="pilier-title">J'apporte des <em>résultats</em><br>mesurables</div>
+        <div class="pilier-desc">
+          Meilleure visibilité de l'avancement, reporting structuré MOE/MOA, coordination renforcée, 
+          délais contractuels tenus. <strong>Je ne fais pas que superviser — je produis des livrables 
+          qui prouvent l'avancement</strong> à chaque niveau de la chaîne décisionnelle.
+        </div>
+        <div class="pilier-proof">"Entre 30M et 500M FCFA par chantier gérés avec tableaux de suivi, notes de synthèse terrain et rapports d'avancement hebdomadaires."</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CHANTIERS -->
+<section id="chantiers">
+  <div class="container">
+    <div class="eye"><span class="eye-t">Portefeuille MEDINACON 2025</span><div class="eye-l"></div></div>
+    <h2 class="sec-title">Chantiers actifs</h2>
+    <p class="sec-sub">6 projets publics simultanés sur le territoire ivoirien — 6 typologies, 5 localités, 1 ingénieur.</p>
+
+    <div class="chantiers-layout fade-up">
+      <!-- Portefeuille chantiers actifs -->
+      <div class="chantier-main">
+        <div class="cm-header">
+          <div>
+            <div class="cm-title">Portefeuille MEDINACON</div>
+            <div class="cm-sub">📍 Côte d'Ivoire · 6 chantiers publics simultanés · Marchés d'État</div>
+          </div>
+          <div class="cm-badge" style="background:var(--green-l);color:var(--green);border:1px solid rgba(46,204,138,.25)">🟢 En cours</div>
+        </div>
+        <div class="cm-kpis">
+          <div class="cm-kpi"><div class="cm-kpi-v">6</div><div class="cm-kpi-l">Chantiers actifs</div></div>
+          <div class="cm-kpi"><div class="cm-kpi-v">5</div><div class="cm-kpi-l">Localités</div></div>
+          <div class="cm-kpi"><div class="cm-kpi-v">6</div><div class="cm-kpi-l">Typologies</div></div>
+          <div class="cm-kpi"><div class="cm-kpi-v">500<span>M+</span></div><div class="cm-kpi-l">FCFA pilotés</div></div>
+        </div>
+        <div class="cm-body">
+          <div class="cm-challenge">
+            <div class="cm-challenge-label">⚠️ Défis gérés sur le terrain</div>
+            <div class="cm-challenge-text">Livraisons matériaux irrégulières, retards sur tâches critiques, conflits sous-traitants, non-conformités détectées — 4 types de crises traitées simultanément sans arrêt de chantier.</div>
+          </div>
+          <div class="cm-actions">
+            <div class="cm-action"><span class="cm-action-ico">⚙️</span>Réorganisation des plannings via T.A.S BUILD — identification des chemins critiques et réévaluation des priorités</div>
+            <div class="cm-action"><span class="cm-action-ico">🤝</span>Médiation et recadrage des sous-traitants — mise en place de plannings de présence formalisés</div>
+            <div class="cm-action"><span class="cm-action-ico">📦</span>Système de suivi des livraisons avec alertes préventives — zéro rupture de stock impactant la production</div>
+          </div>
+          <div class="cm-impact">
+            <div class="cm-impact-label">✅ Résultats</div>
+            <div class="cm-impact-items">
+              <div class="cm-impact-item">Délais contractuels respectés sur l'ensemble du portefeuille</div>
+              <div class="cm-impact-item">Rapports d'avancement hebdomadaires transmis à la MOE/MOA</div>
+              <div class="cm-impact-item">Tableaux de bord multi-sites développés et opérationnels</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mini chantiers -->
+      <div class="chantier-mini-list">
+        <div class="chantier-mini">
+          <div class="cm-mini-ico">🏫</div>
+          <div class="cm-mini-type" style="color:#E8822A">Éducatif</div>
+          <div class="cm-mini-name">Salles de classes & bureaux admin.</div>
+          <div class="cm-mini-loc">📍 Taabo</div>
+          <div class="cm-mini-tags"><span class="cm-mini-tag">Maçonnerie</span><span class="cm-mini-tag">Charpente</span></div>
+        </div>
+        <div class="chantier-mini">
+          <div class="cm-mini-ico">🎭</div>
+          <div class="cm-mini-type" style="color:#4A9EE0">Socio-culturel</div>
+          <div class="cm-mini-name">Centre culturel</div>
+          <div class="cm-mini-loc">📍 Mankono</div>
+          <div class="cm-mini-tags"><span class="cm-mini-tag">Gros œuvre</span><span class="cm-mini-tag">Finitions</span></div>
+        </div>
+        <div class="chantier-mini">
+          <div class="cm-mini-ico">🏥</div>
+          <div class="cm-mini-type" style="color:#2ECC8A">Sanitaire</div>
+          <div class="cm-mini-name">Centre de transfusion sanguine</div>
+          <div class="cm-mini-loc">📍 Touba</div>
+          <div class="cm-mini-tags"><span class="cm-mini-tag">Structure BA</span><span class="cm-mini-tag">Équipements</span></div>
+        </div>
+        <div class="chantier-mini">
+          <div class="cm-mini-ico">🏛️</div>
+          <div class="cm-mini-type" style="color:#D4600A">Administratif</div>
+          <div class="cm-mini-name">Réhabilitation Mairie — Service technique</div>
+          <div class="cm-mini-loc">📍 Aboisso</div>
+          <div class="cm-mini-tags"><span class="cm-mini-tag">Réhabilitation</span><span class="cm-mini-tag">Menuiserie</span></div>
+        </div>
+        <div class="chantier-mini">
+          <div class="cm-mini-ico">🔬</div>
+          <div class="cm-mini-type" style="color:#9B59B6">Scientifique</div>
+          <div class="cm-mini-name">Laboratoire</div>
+          <div class="cm-mini-loc">📍 Bongouanou</div>
+          <div class="cm-mini-tags"><span class="cm-mini-tag">Structure</span><span class="cm-mini-tag">Technique spéciale</span></div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Carte pleine largeur en dessous -->
+    <div class="map-section fade-up" style="margin-top:32px">
+      <div class="map-header">
+        <div class="map-title">Implantation des chantiers</div>
+        <div class="map-count">5 localités · Côte d'Ivoire</div>
+      </div>
+      <svg viewBox="0 0 900 320" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;background:#141414">
+        <defs>
+          <radialGradient id="g1" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#1A1A1A"/>
+            <stop offset="100%" stop-color="#111111"/>
+          </radialGradient>
+          <filter id="glow2">
+            <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+            <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+        </defs>
+        <rect width="900" height="320" fill="url(#g1)"/>
+        <!-- Grille légère -->
+        <line x1="0" y1="160" x2="900" y2="160" stroke="#1E2020" stroke-width="1"/>
+        <line x1="450" y1="0" x2="450" y2="320" stroke="#1E2020" stroke-width="1"/>
+        <!-- Contour CI simplifié élargi -->
+        <path d="M120,50 L280,32 L420,42 L550,36 L680,60 L740,110 L725,168 L700,220 L670,272 L560,304 L450,314 L340,308 L245,288 L165,250 L110,196 L95,140 Z"
+              fill="rgba(46,204,138,0.04)" stroke="#2A3630" stroke-width="1.5" stroke-dasharray="5,4"/>
+        <!-- Connexions depuis Abidjan -->
+        <line x1="430" y1="190" x2="285" y2="132" stroke="rgba(212,96,10,.25)" stroke-width="1.5" stroke-dasharray="4,4"/>
+        <line x1="430" y1="190" x2="285" y2="82"  stroke="rgba(212,96,10,.25)" stroke-width="1.5" stroke-dasharray="4,4"/>
+        <line x1="430" y1="190" x2="195" y2="106" stroke="rgba(212,96,10,.25)" stroke-width="1.5" stroke-dasharray="4,4"/>
+        <line x1="430" y1="190" x2="548" y2="108" stroke="rgba(212,96,10,.25)" stroke-width="1.5" stroke-dasharray="4,4"/>
+        <line x1="430" y1="190" x2="596" y2="218" stroke="rgba(212,96,10,.25)" stroke-width="1.5" stroke-dasharray="4,4"/>
+        <!-- Abidjan base pulsante -->
+        <circle cx="430" cy="190" r="22" fill="rgba(212,96,10,.1)" stroke="rgba(212,96,10,.35)" stroke-width="1.5"/>
+        <circle cx="430" cy="190" r="7" fill="#D4600A" filter="url(#glow2)"/>
+        <circle cx="430" cy="190" r="7" fill="#D4600A">
+          <animate attributeName="r" values="7;15;7" dur="2s" repeatCount="indefinite"/>
+          <animate attributeName="opacity" values="1;0;1" dur="2s" repeatCount="indefinite"/>
+        </circle>
+        <text x="444" y="187" fill="#E8E2D8" font-size="11" font-family="DM Sans,sans-serif" font-weight="700">Abidjan</text>
+        <text x="444" y="200" fill="#606060" font-size="8" font-family="DM Mono,monospace">Base</text>
+        <!-- Taabo -->
+        <circle cx="285" cy="132" r="8" fill="#E8822A" filter="url(#glow2)"/>
+        <circle cx="285" cy="132" r="16" fill="rgba(232,130,42,.12)" stroke="rgba(232,130,42,.3)" stroke-width="1"/>
+        <text x="300" y="129" fill="#E8E2D8" font-size="11" font-family="DM Sans,sans-serif" font-weight="600">Taabo</text>
+        <text x="300" y="142" fill="#606060" font-size="8" font-family="DM Mono,monospace">Éducatif · Transport</text>
+        <!-- Mankono -->
+        <circle cx="285" cy="82" r="8" fill="#4A9EE0" filter="url(#glow2)"/>
+        <circle cx="285" cy="82" r="16" fill="rgba(74,158,224,.12)" stroke="rgba(74,158,224,.3)" stroke-width="1"/>
+        <text x="300" y="79" fill="#E8E2D8" font-size="11" font-family="DM Sans,sans-serif" font-weight="600">Mankono</text>
+        <text x="300" y="92" fill="#606060" font-size="8" font-family="DM Mono,monospace">Socio-culturel</text>
+        <!-- Touba -->
+        <circle cx="195" cy="106" r="8" fill="#2ECC8A" filter="url(#glow2)"/>
+        <circle cx="195" cy="106" r="16" fill="rgba(46,204,138,.12)" stroke="rgba(46,204,138,.3)" stroke-width="1"/>
+        <text x="210" y="103" fill="#E8E2D8" font-size="11" font-family="DM Sans,sans-serif" font-weight="600">Touba</text>
+        <text x="210" y="116" fill="#606060" font-size="8" font-family="DM Mono,monospace">Sanitaire</text>
+        <!-- Aboisso -->
+        <circle cx="548" cy="108" r="8" fill="#E8822A" filter="url(#glow2)"/>
+        <circle cx="548" cy="108" r="16" fill="rgba(232,130,42,.12)" stroke="rgba(232,130,42,.3)" stroke-width="1"/>
+        <text x="563" y="105" fill="#E8E2D8" font-size="11" font-family="DM Sans,sans-serif" font-weight="600">Aboisso</text>
+        <text x="563" y="118" fill="#606060" font-size="8" font-family="DM Mono,monospace">Administratif</text>
+        <!-- Bongouanou -->
+        <circle cx="596" cy="218" r="8" fill="#9B59B6" filter="url(#glow2)"/>
+        <circle cx="596" cy="218" r="16" fill="rgba(155,89,182,.12)" stroke="rgba(155,89,182,.3)" stroke-width="1"/>
+        <text x="612" y="215" fill="#E8E2D8" font-size="11" font-family="DM Sans,sans-serif" font-weight="600">Bongouanou</text>
+        <text x="612" y="228" fill="#606060" font-size="8" font-family="DM Mono,monospace">Scientifique</text>
+        <!-- Légende -->
+        <text x="20" y="308" fill="#3A3A3A" font-size="9" font-family="DM Mono,monospace">MEDINACON · CÔTE D'IVOIRE · 2025 · 6 CHANTIERS PUBLICS</text>
+      </svg>
+      <!-- Légende couleurs -->
+      <div style="padding:14px 20px;border-top:1px solid var(--brd);display:flex;gap:24px;flex-wrap:wrap">
+        <div style="display:flex;align-items:center;gap:7px;font-size:11px;color:var(--text4);font-weight:600"><div style="width:9px;height:9px;border-radius:50%;background:#D4600A"></div>Abidjan — Base</div>
+        <div style="display:flex;align-items:center;gap:7px;font-size:11px;color:var(--text4);font-weight:600"><div style="width:9px;height:9px;border-radius:50%;background:#E8822A"></div>Éducatif / Transport</div>
+        <div style="display:flex;align-items:center;gap:7px;font-size:11px;color:var(--text4);font-weight:600"><div style="width:9px;height:9px;border-radius:50%;background:#4A9EE0"></div>Socio-culturel</div>
+        <div style="display:flex;align-items:center;gap:7px;font-size:11px;color:var(--text4);font-weight:600"><div style="width:9px;height:9px;border-radius:50%;background:#2ECC8A"></div>Sanitaire</div>
+        <div style="display:flex;align-items:center;gap:7px;font-size:11px;color:var(--text4);font-weight:600"><div style="width:9px;height:9px;border-radius:50%;background:#9B59B6"></div>Scientifique</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OUTILS BTP -->
+<section id="outils">
+  <div class="container">
+    <div class="eye"><span class="eye-t">Différenciateur clé</span><div class="eye-l"></div></div>
+    <h2 class="sec-title">Mes outils BTP</h2>
+
+    <div class="outils-intro fade-up">
+      <div class="oi-ico">💡</div>
+      <div class="oi-text">
+        Ces outils ne sont pas des projets personnels annexes. <strong>Ils sont utilisés sur mes propres chantiers, 
+        en production.</strong> Développer ses propres outils, c'est la preuve qu'on comprend les process 
+        suffisamment bien pour les systématiser — c'est exactement ce qu'un directeur technique doit savoir faire.
+      </div>
+    </div>
+
+    <div class="outils-grid">
+
+      <!-- T.A.S BUILD avec screenshots réels -->
+      <div class="outil-card fade-up">
+        <div class="oc-top">
+          <div class="oc-ico">📅</div>
+          <div class="oc-meta">
+            <div class="oc-name">T.A.S BUILD</div>
+            <div class="oc-type">Planification · CPM · Ordonnancement</div>
+            <div class="oc-desc">Gantt interactif multi-chantiers avec calcul automatique du chemin critique (CPM/PERT), analyse des flottements et export PDF professionnel. <strong>Utilisé en production sur les chantiers MEDINACON.</strong></div>
+          </div>
+        </div>
+        <div class="oc-body">
+          <div class="oc-livrable-title">Livrables produits</div>
+          <div class="oc-livrables">
+            <div class="oc-livrable">Planning Gantt multi-chantiers (PDF imprimable, transmission MOE)</div>
+            <div class="oc-livrable">Rapport d'analyse du chemin critique — tableau ES / EF / LS / LF</div>
+            <div class="oc-livrable">Identification des tâches critiques (FT=0) avec alertes visuelles</div>
+            <div class="oc-livrable">Export XLSX du planning pour reporting auprès de la maîtrise d'œuvre</div>
+          </div>
+          <div style="background:var(--bg4);border-radius:8px;border:1px solid var(--brd);overflow:hidden">
+            <div style="background:#161616;padding:7px 12px;border-bottom:1px solid var(--brd);display:flex;align-items:center;justify-content:space-between">
+              <span style="font-family:var(--ff);font-size:9px;font-weight:600;color:var(--text);letter-spacing:.1em">T<span style="color:var(--gold)">.</span>A<span style="color:var(--gold)">.</span>S <span style="color:var(--gold)">BUILD</span> · Aperçu Gantt</span>
+              <span style="font-size:7px;color:var(--text4);font-family:var(--fm)">35 tâches · Durée: 20j</span>
+            </div>
+            <div style="padding:10px 12px;display:flex;flex-direction:column;gap:5px">
+              <div style="display:flex;align-items:center;gap:6px"><div style="width:72px;font-size:7px;color:var(--red);text-align:right;font-weight:700">Poteaux BA</div><div style="flex:1;height:8px;background:rgba(224,80,80,.15);border-radius:2px;overflow:hidden"><div style="width:100%;height:100%;background:var(--red);border-radius:2px"></div></div><div style="font-size:7px;color:var(--red);font-weight:700;margin-left:4px;width:48px">CRITIQUE</div></div>
+              <div style="display:flex;align-items:center;gap:6px"><div style="width:72px;font-size:7px;color:var(--red);text-align:right;font-weight:700">Charpente</div><div style="flex:1;height:8px;background:rgba(224,80,80,.15);border-radius:2px;overflow:hidden"><div style="width:100%;height:100%;background:var(--red);border-radius:2px"></div></div><div style="font-size:7px;color:var(--red);font-weight:700;margin-left:4px;width:48px">CRITIQUE</div></div>
+              <div style="display:flex;align-items:center;gap:6px"><div style="width:72px;font-size:7px;color:var(--red);text-align:right;font-weight:700">Couverture</div><div style="flex:1;height:8px;background:rgba(224,80,80,.15);border-radius:2px;overflow:hidden"><div style="width:100%;height:100%;background:var(--red);border-radius:2px"></div></div><div style="font-size:7px;color:var(--red);font-weight:700;margin-left:4px;width:48px">CRITIQUE</div></div>
+              <div style="display:flex;align-items:center;gap:6px"><div style="width:72px;font-size:7px;color:var(--text4);text-align:right">Maçonnerie</div><div style="flex:1;height:8px;background:var(--brd);border-radius:2px;overflow:hidden"><div style="width:75%;height:100%;background:var(--gold);border-radius:2px"></div></div><div style="font-size:7px;color:var(--text3);margin-left:4px;width:48px">FT: 6j</div></div>
+              <div style="display:flex;align-items:center;gap:6px"><div style="width:72px;font-size:7px;color:var(--text4);text-align:right">Fondations</div><div style="flex:1;height:8px;background:var(--brd);border-radius:2px;overflow:hidden"><div style="width:100%;height:100%;background:#2ECC8A;border-radius:2px"></div></div><div style="font-size:7px;color:#2ECC8A;margin-left:4px;width:48px">✓ OK</div></div>
+              <div style="border-top:1px solid var(--brd);margin-top:4px;padding-top:5px;display:flex;justify-content:space-between;font-size:7px">
+                <span style="color:var(--text4)">7 tâches critiques · FT=0</span><span style="color:var(--red);font-weight:700">Chemin critique identifié</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DevisBTP -->
+      <div class="outil-card fade-up">
+        <div class="oc-top">
+          <div class="oc-ico">📋</div>
+          <div class="oc-meta">
+            <div class="oc-name">DevisBTP Pro</div>
+            <div class="oc-type">Génération de devis · BPU · DPGF</div>
+            <div class="oc-desc">Générateur de devis BTP professionnel — bordereau de prix unitaires, calcul automatique des quantités, TVA et mise en page aux normes CI/MA.</div>
+          </div>
+        </div>
+        <div class="oc-body">
+          <div class="oc-livrable-title">Livrables produits</div>
+          <div class="oc-livrables">
+            <div class="oc-livrable">Devis détaillé par lots avec sous-totaux et TVA (PDF imprimable)</div>
+            <div class="oc-livrable">Bordereau de Prix Unitaires (BPU) formaté aux standards marché</div>
+            <div class="oc-livrable">Décomposition du Prix Global et Forfaitaire (DPGF)</div>
+            <div class="oc-livrable">Document prêt à soumettre à la maîtrise d'ouvrage</div>
+          </div>
+          <div style="background:var(--bg4);border-radius:8px;overflow:hidden;border:1px solid var(--brd)">
+            <div style="background:linear-gradient(90deg,var(--gold),var(--gold2));padding:7px 12px"><span style="font-family:var(--fm);font-size:8px;font-weight:700;color:#fff;letter-spacing:.1em">DEVIS BTP · T.A.S ESTIMATION</span></div>
+            <div style="padding:10px 12px;display:flex;flex-direction:column;gap:4px">
+              <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--text3);padding:4px 0;border-bottom:1px solid var(--brd)"><span>Terrassements</span><span style="color:var(--text2);font-weight:600">1 250 000 F</span></div>
+              <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--text3);padding:4px 0;border-bottom:1px solid var(--brd)"><span>Fondations BA</span><span style="color:var(--text2);font-weight:600">3 800 000 F</span></div>
+              <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--text3);padding:4px 0;border-bottom:1px solid var(--brd)"><span>Structure RDC</span><span style="color:var(--text2);font-weight:600">6 200 000 F</span></div>
+              <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--text3);padding:4px 0;border-bottom:1px solid var(--brd)"><span>Maçonnerie + Enduits</span><span style="color:var(--text2);font-weight:600">2 100 000 F</span></div>
+              <div style="display:flex;justify-content:space-between;font-size:12px;font-weight:700;padding:6px 0;border-top:1px solid var(--gold);margin-top:2px"><span style="color:var(--gold)">TOTAL HT</span><span style="color:var(--gold)">15 100 000 F</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CHANTIER360 -->
+      <div class="outil-card fade-up">
+        <div class="oc-top">
+          <div class="oc-ico">🏢</div>
+          <div class="oc-meta">
+            <div class="oc-name">CHANTIER360</div>
+            <div class="oc-type">Suivi chantier · KPI · Reporting</div>
+            <div class="oc-desc">Tableau de bord temps réel — avancement physique, main d'œuvre, approvisionnements, KPI budgétaires et alertes automatiques pour la MOE/MOA.</div>
+          </div>
+        </div>
+        <div class="oc-body">
+          <div class="oc-livrable-title">Livrables produits</div>
+          <div class="oc-livrables">
+            <div class="oc-livrable">Rapport hebdomadaire d'avancement chantier (PDF signable)</div>
+            <div class="oc-livrable">Tableau de bord KPI multi-sites consultable en temps réel</div>
+            <div class="oc-livrable">État des approvisionnements et suivi des livraisons</div>
+            <div class="oc-livrable">Note de synthèse terrain pour reporting MOE / MOA</div>
+          </div>
+          <div style="background:var(--bg4);border-radius:8px;border:1px solid var(--brd);overflow:hidden">
+            <div style="background:#161616;padding:7px 12px;border-bottom:1px solid var(--brd)"><span style="font-size:9px;font-weight:700;color:var(--gold);letter-spacing:.08em">CHANTIER<span style="color:var(--text)">360</span> · Dashboard</span></div>
+            <div style="padding:10px 12px;display:grid;grid-template-columns:repeat(3,1fr);gap:6px">
+              <div style="background:var(--bg3);border-radius:6px;padding:8px;text-align:center"><div style="font-family:var(--ff);font-size:20px;font-weight:600;color:#2ECC8A">78%</div><div style="font-size:8px;color:var(--text4);text-transform:uppercase;letter-spacing:.05em;margin-top:2px">Avancement</div></div>
+              <div style="background:var(--bg3);border-radius:6px;padding:8px;text-align:center"><div style="font-family:var(--ff);font-size:20px;font-weight:600;color:var(--gold)">24</div><div style="font-size:8px;color:var(--text4);text-transform:uppercase;letter-spacing:.05em;margin-top:2px">Ouvriers</div></div>
+              <div style="background:var(--bg3);border-radius:6px;padding:8px;text-align:center"><div style="font-family:var(--ff);font-size:20px;font-weight:600;color:var(--red)">3</div><div style="font-size:8px;color:var(--text4);text-transform:uppercase;letter-spacing:.05em;margin-top:2px">Alertes</div></div>
+              <div style="background:var(--bg3);border-radius:6px;padding:8px;text-align:center;grid-column:span 3"><div style="font-size:11px;font-weight:600;color:var(--text2)">98.5M FCFA consommés</div><div style="font-size:8px;color:var(--text4)">sur budget contractuel</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CostingBTP -->
+      <div class="outil-card fade-up">
+        <div class="oc-top">
+          <div class="oc-ico">💰</div>
+          <div class="oc-meta">
+            <div class="oc-name">T.A.S CostingBTP</div>
+            <div class="oc-type">Estimation · Coûts · Marges</div>
+            <div class="oc-desc">Estimation budgétaire avec bibliothèque de prix, décomposition MO/Matériaux/Matériel, coefficients de marché et analyse des marges par poste.</div>
+          </div>
+        </div>
+        <div class="oc-body">
+          <div class="oc-livrable-title">Livrables produits</div>
+          <div class="oc-livrables">
+            <div class="oc-livrable">Étude de prix détaillée par poste (MO / Matériaux / Matériel)</div>
+            <div class="oc-livrable">Analyse des marges brutes et coefficients d'actualisation</div>
+            <div class="oc-livrable">Tableau comparatif des offres fournisseurs</div>
+            <div class="oc-livrable">Export XLSX de l'estimation pour dossier d'appel d'offres</div>
+          </div>
+          <div style="background:var(--bg4);border-radius:8px;border:1px solid var(--brd);padding:12px">
+            <div style="display:flex;flex-direction:column;gap:7px">
+              <div style="display:flex;align-items:center;gap:8px"><div style="width:60px;font-size:9px;color:var(--text4);text-align:right">Main d'œuvre</div><div style="flex:1;height:8px;background:var(--bg3);border-radius:4px;overflow:hidden"><div style="width:70%;height:100%;background:linear-gradient(90deg,var(--gold),var(--gold2));border-radius:4px"></div></div><div style="width:28px;font-size:9px;color:var(--text3);text-align:right">35%</div></div>
+              <div style="display:flex;align-items:center;gap:8px"><div style="width:60px;font-size:9px;color:var(--text4);text-align:right">Matériaux</div><div style="flex:1;height:8px;background:var(--bg3);border-radius:4px;overflow:hidden"><div style="width:90%;height:100%;background:linear-gradient(90deg,var(--gold),var(--gold2));border-radius:4px"></div></div><div style="width:28px;font-size:9px;color:var(--text3);text-align:right">45%</div></div>
+              <div style="display:flex;align-items:center;gap:8px"><div style="width:60px;font-size:9px;color:var(--text4);text-align:right">Matériel</div><div style="flex:1;height:8px;background:var(--bg3);border-radius:4px;overflow:hidden"><div style="width:40%;height:100%;background:linear-gradient(90deg,var(--gold),var(--gold2));border-radius:4px"></div></div><div style="width:28px;font-size:9px;color:var(--text3);text-align:right">12%</div></div>
+              <div style="display:flex;align-items:center;gap:8px"><div style="width:60px;font-size:9px;color:var(--text4);text-align:right">Indirects</div><div style="flex:1;height:8px;background:var(--bg3);border-radius:4px;overflow:hidden"><div style="width:28%;height:100%;background:linear-gradient(90deg,var(--gold),var(--gold2));border-radius:4px"></div></div><div style="width:28px;font-size:9px;color:var(--text3);text-align:right">8%</div></div>
+              <div style="border-top:1px solid var(--brd);padding-top:7px;display:flex;justify-content:space-between"><span style="font-size:10px;color:var(--text4)">Marge brute estimée</span><span style="font-size:11px;font-weight:700;color:var(--green)">+18.5%</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EXPÉRIENCE -->
+<section id="experience">
+  <div class="container">
+    <div class="eye"><span class="eye-t">Parcours</span><div class="eye-l"></div></div>
+    <h2 class="sec-title">Expérience</h2>
+    <p class="sec-sub">3 postes, 2 pays, 8+ projets — chaque étape a construit le profil d'un futur directeur technique.</p>
+    <div class="exp-list">
+
+      <div class="exp-item fade-up">
+        <div class="exp-line"></div>
+        <div class="exp-left">
+          <div class="exp-period">Sept. 2025 — Présent</div>
+          <div class="exp-company">MEDINACON</div>
+          <div class="exp-loc">Abidjan, CI</div>
+        </div>
+        <div class="exp-right">
+          <div class="exp-dot"></div>
+          <div class="exp-role">Ingénieur Projet BTP <span class="exp-current">En poste</span></div>
+          <div class="exp-tasks">
+            <div class="exp-task">Pilotage simultané de 6 chantiers publics (30M–500M FCFA) sous supervision MOE</div>
+            <div class="exp-task">Coordination terrain : équipes, sous-traitants, fournisseurs — gestion des conflits et arbitrages</div>
+            <div class="exp-task">Détection et correction de non-conformités par rapport aux plans d'exécution</div>
+            <div class="exp-task">Gestion de crises : retards rattrapés, livraisons défaillantes palliées, problèmes techniques résolus</div>
+            <div class="exp-task">Production des livrables MOE/MOA : rapports hebdo, tableaux multi-sites, notes de synthèse</div>
+            <div class="exp-task">Développement et utilisation de T.A.S BUILD pour la planification CPM des chantiers</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-item fade-up">
+        <div class="exp-line"></div>
+        <div class="exp-left">
+          <div class="exp-period">Fév. — Juil. 2025</div>
+          <div class="exp-company">SECTRA SARL</div>
+          <div class="exp-loc">Casablanca, MA</div>
+        </div>
+        <div class="exp-right">
+          <div class="exp-dot"></div>
+          <div class="exp-role">Junior Bid Manager</div>
+          <div class="exp-tasks">
+            <div class="exp-task">Études de prix et estimations budgétaires — villa Marrakech + 24 salles de classes Sidi Bennour</div>
+            <div class="exp-task">Dossiers d'appels d'offres publics et privés — variantes techniques et économiques</div>
+            <div class="exp-task">Suivi chantier : avancement physique, délais contractuels, écarts plans/exécution</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-item fade-up">
+        <div class="exp-line"></div>
+        <div class="exp-left">
+          <div class="exp-period">Mai — Juil. 2024</div>
+          <div class="exp-company">ISTP</div>
+          <div class="exp-loc">Abidjan, CI</div>
+        </div>
+        <div class="exp-right">
+          <div class="exp-dot"></div>
+          <div class="exp-role">Ingénieur Stagiaire — Structure</div>
+          <div class="exp-tasks">
+            <div class="exp-task">Conception et analyse structurale d'un bâtiment R+3 + terrasse (BAEL 91)</div>
+            <div class="exp-task">Supervision chantier et contrôle de conformité des travaux</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- COMPÉTENCES -->
+<section id="competences">
+  <div class="container">
+    <div class="eye"><span class="eye-t">Savoir-faire</span><div class="eye-l"></div></div>
+    <h2 class="sec-title">Compétences</h2>
+    <p class="sec-sub">De la descente de charges au développement d'outils — une expertise à double entrée.</p>
+    <div class="skills-grid">
+      <div class="sg fade-up">
+        <div class="sg-t">Pilotage & Chantier</div>
+        <div class="sk"><div class="sk-meta"><span class="sk-n">Suivi multi-chantiers</span><span class="sk-p">95%</span></div><div class="sk-bar"><div class="sk-fill" data-w="95"></div></div></div>
+        <div class="sk"><div class="sk-meta"><span class="sk-n">Planification CPM / Gantt</span><span class="sk-p">90%</span></div><div class="sk-bar"><div class="sk-fill" data-w="90"></div></div></div>
+        <div class="sk"><div class="sk-meta"><span class="sk-n">Gestion budgétaire</span><span class="sk-p">85%</span></div><div class="sk-bar"><div class="sk-fill" data-w="85"></div></div></div>
+        <div class="sk"><div class="sk-meta"><span class="sk-n">Coordination & arbitrage</span><span class="sk-p">88%</span></div><div class="sk-bar"><div class="sk-fill" data-w="88"></div></div></div>
+      </div>
+      <div class="sg fade-up">
+        <div class="sg-t">Génie Civil & Structure</div>
+        <div class="sk"><div class="sk-meta"><span class="sk-n">Calcul structurel BAEL 91</span><span class="sk-p">90%</span></div><div class="sk-bar"><div class="sk-fill" data-w="90"></div></div></div>
+        <div class="sk"><div class="sk-meta"><span class="sk-n">Eurocodes / DTU</span><span class="sk-p">86%</span></div><div class="sk-bar"><div class="sk-fill" data-w="86"></div></div></div>
+        <div class="sk"><div class="sk-meta"><span class="sk-n">Audit & Contrôle technique</span><span class="sk-p">88%</span></div><div class="sk-bar"><div class="sk-fill" data-w="88"></div></div></div>
+        <div class="sk"><div class="sk-meta"><span class="sk-n">Sismique RPS 2011</span><span class="sk-p">78%</span></div><div class="sk-bar"><div class="sk-fill" data-w="78"></div></div></div>
+      </div>
+      <div class="sg fade-up">
+        <div class="sg-t">Appels d'Offres & Estimation</div>
+        <div class="sk"><div class="sk-meta"><span class="sk-n">Études de prix & BPU</span><span class="sk-p">88%</span></div><div class="sk-bar"><div class="sk-fill" data-w="88"></div></div></div>
+        <div class="sk"><div class="sk-meta"><span class="sk-n">Dossiers AO publics/privés</span><span class="sk-p">84%</span></div><div class="sk-bar"><div class="sk-fill" data-w="84"></div></div></div>
+        <div class="sk"><div class="sk-meta"><span class="sk-n">Variantes techniques</span><span class="sk-p">80%</span></div><div class="sk-bar"><div class="sk-fill" data-w="80"></div></div></div>
+      </div>
+      <div class="sg fade-up">
+        <div class="sg-t">Digital & Développement</div>
+        <div class="sk"><div class="sk-meta"><span class="sk-n">Développement outils HTML/JS</span><span class="sk-p">85%</span></div><div class="sk-bar"><div class="sk-fill" data-w="85"></div></div></div>
+        <div class="sk"><div class="sk-meta"><span class="sk-n">Excel / XLSX avancé</span><span class="sk-p">92%</span></div><div class="sk-bar"><div class="sk-fill" data-w="92"></div></div></div>
+        <div class="sk"><div class="sk-meta"><span class="sk-n">Digitalisation processus BTP</span><span class="sk-p">82%</span></div><div class="sk-bar"><div class="sk-fill" data-w="82"></div></div></div>
+      </div>
+    </div>
+
+    <!-- Certs -->
+    <div style="margin-top:40px">
+      <div class="eye" style="margin-bottom:18px"><span class="eye-t">Certifications</span><div class="eye-l"></div></div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:10px">
+        <div style="background:var(--bg2);border:1px solid var(--brd);border-radius:10px;padding:14px;display:flex;gap:10px;align-items:flex-start;transition:border-color .2s" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--brd)'"><span style="font-size:16px">📅</span><span style="font-size:11px;font-weight:500;color:var(--text2)">Construction Scheduling</span></div>
+        <div style="background:var(--bg2);border:1px solid var(--brd);border-radius:10px;padding:14px;display:flex;gap:10px;align-items:flex-start;transition:border-color .2s" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--brd)'"><span style="font-size:16px">💰</span><span style="font-size:11px;font-weight:500;color:var(--text2)">Construction Cost Estimating & Cost Control</span></div>
+        <div style="background:var(--bg2);border:1px solid var(--brd);border-radius:10px;padding:14px;display:flex;gap:10px;align-items:flex-start;transition:border-color .2s" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--brd)'"><span style="font-size:16px">⚡</span><span style="font-size:11px;font-weight:500;color:var(--text2)">Agile Project Management</span></div>
+        <div style="background:var(--bg2);border:1px solid var(--brd);border-radius:10px;padding:14px;display:flex;gap:10px;align-items:flex-start;transition:border-color .2s" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--brd)'"><span style="font-size:16px">🌍</span><span style="font-size:11px;font-weight:500;color:var(--text2)">Villes africaines : Mobilités & Transport</span></div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORMATION -->
+<section id="formation">
+  <div class="container">
+    <div class="eye"><span class="eye-t">Parcours académique</span><div class="eye-l"></div></div>
+    <h2 class="sec-title">Formation</h2>
+    <div class="edu-grid">
+      <div class="edu-card fade-up"><div class="edu-yr">Juillet 2025 · Master 2</div><div class="edu-deg">Ingénieur d'État en Génie Civil — Architectural & Urbain</div><div class="edu-school">HESTIM / INSA Lyon</div><div class="edu-loc">📍 Casablanca, Maroc</div></div>
+      <div class="edu-card fade-up"><div class="edu-yr">Juillet 2024 · Master 1</div><div class="edu-deg">Ingénieur d'État en Génie Civil — Architectural & Urbain</div><div class="edu-school">HESTIM / INSA Lyon</div><div class="edu-loc">📍 Casablanca, Maroc</div></div>
+      <div class="edu-card fade-up"><div class="edu-yr">Décembre 2020 · Licence Pro</div><div class="edu-deg">Licence Professionnelle en Génie Civil</div><div class="edu-school">ITA Ingénierie</div><div class="edu-loc">📍 Abidjan, Côte d'Ivoire</div></div>
+      <div class="edu-card fade-up"><div class="edu-yr">Septembre 2019 · BTS</div><div class="edu-deg">Brevet de Technicien Supérieur — BTP</div><div class="edu-school">ESBTP</div><div class="edu-loc">📍 Yamoussoukro, Côte d'Ivoire</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="eye"><span class="eye-t">Me rejoindre</span><div class="eye-l"></div></div>
+    <h2 class="sec-title">Contact</h2>
+    <p class="sec-sub">Disponible pour des opportunités en Côte d'Ivoire, au Maroc, en Afrique ou à l'international.</p>
+    <div class="contact-grid fade-up">
+      <div class="c-items">
+        <a class="c-item" href="tel:+22507783086 66"><div class="c-ico">📞</div><div><div class="c-lbl">Téléphone CI</div><div class="c-val">+225 07 78 30 86 66</div></div></a>
+        <a class="c-item" href="tel:+212638604136"><div class="c-ico">📱</div><div><div class="c-lbl">Téléphone MA</div><div class="c-val">+212 63 860 41 36</div></div></a>
+        <a class="c-item" href="mailto:toureab6@gmail.com"><div class="c-ico">✉️</div><div><div class="c-lbl">Email</div><div class="c-val">toureab6@gmail.com</div></div></a>
+        <div class="c-item"><div class="c-ico">📍</div><div><div class="c-lbl">Localisation</div><div class="c-val">Abidjan, Cocody — Côte d'Ivoire</div></div></div>
+        <div class="c-item"><div class="c-ico">🌍</div><div><div class="c-lbl">Mobilité</div><div class="c-val">Abidjan · Maroc · International</div></div></div>
+        <div class="c-item"><div class="c-ico">🚗</div><div><div class="c-lbl">Permis</div><div class="c-val">Catégories ABCDE</div></div></div>
+      </div>
+      <div class="c-card">
+        <div class="c-avail">Disponible pour de nouvelles opportunités</div>
+        <div class="c-card-title">Ce que j'apporte à une direction technique.</div>
+        <div class="c-card-desc">Un ingénieur qui arrive non seulement avec son expertise terrain, mais avec les outils qu'il a lui-même construits pour structurer, mesurer et améliorer chaque chantier. Prêt à opérer à l'international, sans contrainte géographique.</div>
+        <div class="c-pts">
+          <div class="c-pt"><span class="c-pt-ico">🏗️</span><span>Gestion multi-chantiers publics simultanés — terrain et reporting</span></div>
+          <div class="c-pt"><span class="c-pt-ico">🛠️</span><span>4 outils BTP développés et utilisés en production</span></div>
+          <div class="c-pt"><span class="c-pt-ico">📐</span><span>Double compétence structure + appels d'offres</span></div>
+          <div class="c-pt"><span class="c-pt-ico">🌍</span><span>Mobilité totale · Français natif</span></div>
+        </div>
+        <a href="mailto:toureab6@gmail.com" class="btn-p">✉️ Envoyer un message</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="f-logo">A<span>.</span>S<span>.</span> Touré</div>
+  <div class="f-txt">Ingénieur d'État en Génie Civil · Directeur Technique Junior · © 2025</div>
+  <div class="f-langs"><span class="f-lang">🇫🇷 Français</span></div>
+</footer>
+
+<script>
+// Tab switcher outils
+function switchTab(btn, panel) {
+  const card = btn.closest('.outil-card');
+  card.querySelectorAll('.oc-tab').forEach(t => t.classList.remove('active'));
+  card.querySelectorAll('.oc-panel').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  card.querySelector('#panel-' + panel).classList.add('active');
+}
+
+// Scroll animations
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      e.target.querySelectorAll('.sk-fill[data-w]').forEach(b => {
+        setTimeout(() => { b.style.width = b.dataset.w + '%'; }, 200);
+      });
+    }
+  });
+}, { threshold: 0.12 });
+document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
